@@ -1,0 +1,32 @@
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:aop="http://www.springframework.org/schema/aop"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/aop
+   http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+   <context:component-scan base-package="com.practice.springaop.*" />
+   
+<!--  <context:annotation-config />-->
+   
+   <aop:aspectj-autoproxy/>
+    
+<!--   <bean id = "employee" class = "com.practice.springaop.others.Employee">
+      <property name = "name" value = "Jaggy"/>
+   </bean>-->
+   
+   <bean id = "employeeService" class = "com.practice.springaop.others.EmployeeService">
+      <property name = "emp" ref = "employee"/>
+   </bean>
+   
+   <bean id="employeeAspect" class="com.practice.springaop.aspect.EmployeeAspect">
+   </bean>
+
+   <bean id="employeeAspectPointcut" class="com.practice.springaop.aspect.EmployeeAspectPointcut">
+   </bean>
+
+</beans>
